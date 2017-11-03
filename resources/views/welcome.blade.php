@@ -71,8 +71,10 @@
                     @if (Auth::check())
                         <a href="{{ url('/home') }}">Home</a>
                     @else
+						<a href="{{ url('/admin') }}">Admin</a>
                         <a href="{{ url('/login') }}">Login</a>
                         <a href="{{ url('/register') }}">Register</a>
+						
                     @endif
                 </div>
             @endif
@@ -91,6 +93,7 @@
 					<a href="about">About</a>
 					<a href="contact">Contact</a>
 					<a href="https://github.com/Ariq139" target="_blank">My Projects</a>
+					<a href="template">Templating</a>
                 </div>
             </div>
         </div>

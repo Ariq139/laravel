@@ -26,3 +26,26 @@ Route::get('/about', function () {
 Route::post('/contact/sent', function () {
     return view('sent');
 });
+
+Route::get('template', function () {
+	return view('layouts.master');
+});
+
+Route::get('coba1', function () {
+    return view('coba1');
+});
+
+Route::get('coba2', function () {
+    return view('coba2');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/users/logout', 'Auth\LoginController@userLogout')->name('user.logout'); 
+Route::prefix('admin')->group(function() {
+	Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
+	Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
+	Route::get('/', 'AdminController@index')->name('admin.dashboard');
+	Route::post('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+});
